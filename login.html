@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Portal Login</title>
+    <style>
+        /* A very basic, clean layout */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .login-container {
+            background-color: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            width: 100%;
+            max-width: 400px;
+        }
+        h2 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #666;
+        }
+        input[type="text"],
+        input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box; /* Ensures padding doesn't mess up width */
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #0056b3; /* Generic blue */
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 10px;
+        }
+        button:hover {
+            background-color: #004494;
+        }
+        .error-message {
+            color: red;
+            font-size: 14px;
+            margin-top: 10px;
+            text-align: center;
+            display: none; /* Hidden by default */
+        }
+    </style>
+</head>
+<body>
+
+<div class="login-container">
+    <h2>Student Portal</h2>
+    
+    <form id="mockLoginForm">
+        <div class="form-group">
+            <label for="studentId">Student ID</label>
+            <input type="text" id="studentId" name="studentId" required>
+        </div>
+        
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" required>
+        </div>
+        
+        <button type="submit">Login</button>
+        <div id="errorText" class="error-message">Please enter an ID and Password.</div>
+    </form>
+</div>
+
+<script>
+    document.getElementById('mockLoginForm').addEventListener('submit', function(event) {
+        // Prevent the form from refreshing the page
+        event.preventDefault();
+
+        // Get the values the user typed in
+        const studentId = document.getElementById('studentId').value;
+        const password = document.getElementById('password').value;
+        const errorText = document.getElementById('errorText');
+
+        // Check if they match your exact numbers
+        if (studentId === '2240429' && password === '30202030') {
+            // Success! Hide the error and redirect
+            errorText.style.display = 'none';
+            window.location.href = 'index.html'; 
+        } else {
+            // Failure! Show the custom error message
+            errorText.textContent = 'Incorrect Student ID or Password.';
+            errorText.style.display = 'block';
+        }
+    });
+</script>
+
+</body>
+</html>
