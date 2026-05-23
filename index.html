@@ -55,6 +55,55 @@
 .gradeDiv table td { border-bottom:1px solid #fff; }
 .gradeDiv table th { background-color: #cddce3; font-size:10px; }
 .gradeDiv table td.sep { background-color: white; color:#78aac1; }
+
+/* Dropdown Menu Styles */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropbtn {
+  background-color: lightblue;
+  color: black;
+  padding: 4px 8px;
+  font-size: 13px;
+  border: 1px solid #666;
+  cursor: pointer;
+  margin: 2px;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 220px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1000; /* Ensures the menu drops DOWN over the table */
+  border: 1px solid #ccc;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 8px 12px;
+  text-decoration: none;
+  display: block;
+  font-size: 12px;
+  border-bottom: 1px solid #eee;
+}
+
+.dropdown-content a:hover {
+  background-color: #e6eef2; /* Matches the Bilkent hover color */
+}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* Slightly darken the button when hovered */
+.dropdown:hover .dropbtn {
+  background-color: #9ac9db;
+}
 </style>
 </head>
     <body>
@@ -106,7 +155,7 @@
                         <tr><td>Shabbir</td></tr>
                         <tr><td>EE</td></tr>
                         <tr><td>22401429</td></tr>
-                        <tr><td><input type="button" value="Logout" class="actionbutton"></td></tr>
+                        <tr><td><input type="button" value="Logout" class="actionbutton" onclick="window.location.href='login.html'"></td></tr>
                         </tbody></table>
                     </td>
                 </tr>
@@ -146,7 +195,26 @@
             <div class="infoBox last-login">Last Login: <strong>20.05.2026 17:49 from 139.179.166.95</strong></div>
 
             <div>
-                <a style="border:1px solid #666;background-color: lightblue;color: #000;padding:2px;margin:2px;" target="_blank" href="https://YOUR_LINK_HERE" title="Button 1"> Custom Button 1</a>
+                <div class="dropdown">
+                  <button class="dropbtn">Information &#9660;</button>
+                  <div class="dropdown-content">
+                    <a href="#">Current Courses</a>
+                    <a href="#">Grades</a>
+                    <a href="#">Attendances</a>
+                    <a href="#">Scheduled Exams & Assessments</a>
+                    <a href="#">Transcript</a>
+                    <a href="#">Curriculum</a>
+                    <a href="#">Course Withdraw Info</a>
+                    <a href="#">Letter Grade Statistics</a>
+                    <a href="#">Semesters & Courses</a>
+                    <a href="#">GE-100</a>
+                    <a href="#">Courses Taken</a>
+                    <a href="#">Information Card</a>
+                    <a href="#">Registration Appointment</a>
+                    <a href="#">Career Center Seminars</a>
+                  </div>
+                </div>
+
                 <a style="border:1px solid #666;background-color: #00CCEE;color: #000;padding:4px;margin:2px 5px; font-weight:bold;" target="_blank" href="https://YOUR_LINK_HERE" title="Button 2">Custom Button 2</a>
             </div><br>
             
