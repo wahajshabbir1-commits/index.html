@@ -23,10 +23,20 @@
             width: 100%;
             max-width: 400px;
         }
+        
+        /* Coat of Arms Styling */
+        .logo {
+            display: block;
+            margin: 0 auto 15px auto; /* Centers the image horizontally and adds space below */
+            max-width: 120px; /* Adjust this number based on how big you want the logo */
+            height: auto; /* Keeps the aspect ratio from stretching */
+        }
+
         h2 {
             text-align: center;
             color: #333;
             margin-bottom: 20px;
+            margin-top: 0; /* Keeps spacing clean below the logo */
         }
         .form-group {
             margin-bottom: 15px;
@@ -70,6 +80,9 @@
 <body>
 
 <div class="login-container">
+    
+    <img src="coat-of-arms.png" alt="University Coat of Arms" class="logo">
+    
     <h2>Student Portal</h2>
     
     <form id="mockLoginForm">
