@@ -85,7 +85,7 @@
     
     <h2>Student Portal</h2>
     
-    <form id="mockLoginForm">
+<form id="mockLoginForm">
         <div class="form-group">
             <label for="studentId">Student ID</label>
             <input type="text" id="studentId" name="studentId" required>
@@ -96,30 +96,34 @@
             <input type="password" id="password" name="password" required>
         </div>
         
-        <button type="submit">Login</button>
+        <button type="button" onclick="attemptLogin()">Login</button>
         <div id="errorText" class="error-message">Please enter an ID and Password.</div>
     </form>
 </div>
 
 <script>
-    document.getElementById('mockLoginForm').addEventListener('submit', function(event) {
-        // Prevent the form from refreshing the page
-        event.preventDefault();
-
-        // Get the values the user typed in
+    function attemptLogin() {
         const studentId = document.getElementById('studentId').value;
         const password = document.getElementById('password').value;
         const errorText = document.getElementById('errorText');
 
-        // Check if they match your exact numbers
         if (studentId === '22401429' && password === '30202030') {
-            // Success! Hide the error and redirect
+            // Success! Hide error
             errorText.style.display = 'none';
-            window.location.href = 'index.html'; 
+            // THE FIX: Use the absolute URL so it is forced to leave the login page
+            window.location.href = 'https://bilknet.it.com.com/dashboard.html'; 
         } else {
-            // Failure! Show the custom error message
+            // Failure! Show error
             errorText.textContent = 'Incorrect Student ID or Password.';
             errorText.style.display = 'block';
+        }
+    }
+
+    // This makes it so hitting the "Enter" key on your keyboard also triggers the login
+    document.getElementById('mockLoginForm').addEventListener('keypress', function (e) {
+        if (e.key === 'Enter') {
+            e.preventDefault();
+            attemptLogin();
         }
     });
 </script>
