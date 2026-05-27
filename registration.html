@@ -83,16 +83,18 @@
   border: 1px solid #ccc;
 }
 
-.dropdown-content a {
+/* THE FIX: We use 'span' instead of 'a' so Bilkent JS cannot hijack the link! */
+.dropdown-content span.nav-link {
   color: black;
   padding: 8px 12px;
   text-decoration: none;
   display: block;
   font-size: 12px;
   border-bottom: 1px solid #eee;
+  cursor: pointer;
 }
 
-.dropdown-content a:hover {
+.dropdown-content span.nav-link:hover {
   background-color: #e6eef2; 
 }
 
@@ -129,10 +131,7 @@
         <div class="logoTopTitle">Student Academic Information Registration System<br></div>
       </td>
       <td align="right" valign="top">
-        <div id="menuBarContainer" style="position:absolute; z-index:100; right:5px">
-          <div id="rightDiv"></div>
-          <div class="DHTMLSuite_menuBar_top"></div>
-        </div>
+        <div id="menuBarContainer" style="display:none;"></div>
       </td>
     </tr>
   </tbody></table>
@@ -151,9 +150,9 @@
                 <div class="dropdown">
                   <button class="dropbtn">Information &#9660;</button>
                   <div class="dropdown-content">
-                    <a href="javascript:void(0);" onclick="window.top.location.href='https://wahajshabbir1-commits.github.io/index.html/index.html';">Dashboard</a>
-                    <a href="javascript:void(0);" onclick="window.top.location.href='https://wahajshabbir1-commits.github.io/index.html/transcript.html';">Transcript</a>
-                    <a href="#">Registration Appointment</a>
+                    <span class="nav-link" onclick="window.top.location.href='https://bilknet.it.com/dashboard.html';">Dashboard</span>
+                    <span class="nav-link" onclick="window.top.location.href='https://bilknet.it.com/transcript.html';">Transcript</span>
+                    <span class="nav-link" onclick="window.top.location.href='https://bilknet.it.com/registration.html';">Registration Appointment</span>
                   </div>
                 </div>
                 
