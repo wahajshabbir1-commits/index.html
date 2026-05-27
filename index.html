@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Student Portal Login</title>
     <style>
-        /* A very basic, clean layout */
         body {
             font-family: Arial, sans-serif;
             background-color: #f4f4f9;
@@ -23,20 +22,17 @@
             width: 100%;
             max-width: 400px;
         }
-        
-        /* Coat of Arms Styling */
         .logo {
             display: block;
-            margin: 0 auto 15px auto; /* Centers the image horizontally and adds space below */
-            max-width: 120px; /* Adjust this number based on how big you want the logo */
-            height: auto; /* Keeps the aspect ratio from stretching */
+            margin: 0 auto 15px auto; 
+            max-width: 120px; 
+            height: auto; 
         }
-
         h2 {
             text-align: center;
             color: #333;
             margin-bottom: 20px;
-            margin-top: 0; /* Keeps spacing clean below the logo */
+            margin-top: 0; 
         }
         .form-group {
             margin-bottom: 15px;
@@ -52,12 +48,12 @@
             padding: 10px;
             border: 1px solid #ccc;
             border-radius: 4px;
-            box-sizing: border-box; /* Ensures padding doesn't mess up width */
+            box-sizing: border-box; 
         }
         button {
             width: 100%;
             padding: 10px;
-            background-color: #0056b3; /* Generic blue */
+            background-color: #0056b3; 
             color: white;
             border: none;
             border-radius: 4px;
@@ -73,7 +69,7 @@
             font-size: 14px;
             margin-top: 10px;
             text-align: center;
-            display: none; /* Hidden by default */
+            display: none; 
         }
     </style>
 </head>
@@ -85,47 +81,42 @@
     
     <h2>Student Portal</h2>
     
-<form id="mockLoginForm">
+    <div id="loginContainer">
         <div class="form-group">
             <label for="studentId">Student ID</label>
-            <input type="text" id="studentId" name="studentId" required>
+            <input type="text" id="studentId" name="studentId">
         </div>
         
         <div class="form-group">
             <label for="password">Password</label>
-            <input type="password" id="password" name="password" required>
+            <input type="password" id="password" name="password">
         </div>
         
         <button type="button" onclick="attemptLogin()">Login</button>
         <div id="errorText" class="error-message">Please enter an ID and Password.</div>
-    </form>
+    </div>
 </div>
 
 <script>
     function attemptLogin() {
-        const studentId = document.getElementById('studentId').value;
-        const password = document.getElementById('password').value;
+        // .trim() removes any accidental spaces the user types
+        const studentId = document.getElementById('studentId').value.trim();
+        const password = document.getElementById('password').value.trim();
         const errorText = document.getElementById('errorText');
 
         if (studentId === '22401429' && password === '30202030') {
-            // Success! Hide error
             errorText.style.display = 'none';
-            // THE FIX: Use the absolute URL so it is forced to leave the login page
-            window.location.href = 'https://bilknet.it.com.com/dashboard.html'; 
+            // THE FIX: Simple relative link directly to the dashboard
+            window.location.href = 'dashboard.html'; 
         } else {
-            // Failure! Show error
             errorText.textContent = 'Incorrect Student ID or Password.';
             errorText.style.display = 'block';
         }
     }
 
-    // This makes it so hitting the "Enter" key on your keyboard also triggers the login
-    document.getElementById('mockLoginForm').addEventListener('keypress', function (e) {
-        if (e.key === 'Enter') {
-            e.preventDefault();
-            attemptLogin();
-        }
-    });
+    // Allows hitting "Enter" on the keyboard to log in
+    document.getElementById('studentId').addEventListener('keypress', function(e) { if(e.key === 'Enter') attemptLogin(); });
+    document.getElementById('password').addEventListener('keypress', function(e) { if(e.key === 'Enter') attemptLogin(); });
 </script>
 
 </body>
